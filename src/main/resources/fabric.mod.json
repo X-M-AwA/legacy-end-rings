@@ -8,8 +8,8 @@
 		"XiaotianMC"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/XiaotianNB666/legacy-end-rings"
+		"homepage": "https://github.com/XiaotianNB666/legacy-end-rings",
+		"sources": ""
 	},
 	"license": "MIT",
 	"icon": "assets/legacy-end-rings/icon.png",
