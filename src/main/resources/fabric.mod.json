@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "legacy-end-rings",
+	"version": "${version}",
+	"name": "Legacy End Rings",
+	"description": "Reintroduces the classic End Void Ring generation from 26.3-snapshot-6.\nRestores the integer overflow behavior that created concentric void rings.",
+	"authors": [
+		"XiaotianMC"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/XiaotianNB666/legacy-end-rings"
+	},
+	"license": "MIT",
+	"icon": "assets/legacy-end-rings/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"cn.gcte.LegacyEndRings"
+		],
+		"client": [
+			"cn.gcte.client.LegacyEndRingsClient"
+		]
+	},
+	"mixins": [
+		"legacy-end-rings.mixins.json",
+		{
+			"config": "legacy-end-rings.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": ">=26.3-alpha.6",
+		"java": ">=25"
+	}
+}

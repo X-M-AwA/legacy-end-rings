@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "cn.gcte.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "EndIslandDensityFunctionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}
