@@ -3,6 +3,7 @@ package cn.gcte.mixin;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.DensityFunction;
+import net.minecraft.world.level.levelgen.densityfunction.generator.EndIslandFunction;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 import org.spongepowered.asm.mixin.Final;
@@ -14,9 +15,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(targets = "net.minecraft.world.level.levelgen.DensityFunctions$EndIslandDensityFunction")
-public abstract class EndIslandDensityFunctionMixin
-		implements DensityFunction.SimpleFunction {
+@Mixin(EndIslandFunction.class)
+public abstract class EndIslandFunctionMixin implements DensityFunction {
 	@Final
     @Mutable
 	@Shadow
