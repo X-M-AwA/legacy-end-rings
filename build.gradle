@@ -27,10 +27,12 @@ repositories {
 loom {
 	splitEnvironmentSourceSets()
 
-	mods {
-		"legacy-end-rings" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
+	def commonProgramArgs = ["--width", "1280", "--height", "--720", "--username", "LegacyEndRingDev"]
+
+	runs {
+		named("client") {
+			generateRunConfig.set(true)
+			programArguments.set(commonProgramArgs)
 		}
 	}
 }

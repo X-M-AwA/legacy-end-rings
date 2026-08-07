@@ -17,21 +17,14 @@
 	"entrypoints": {
 		"main": [
 			"cn.gcte.LegacyEndRings"
-		],
-		"client": [
-			"cn.gcte.client.LegacyEndRingsClient"
 		]
 	},
 	"mixins": [
-		"legacy-end-rings.mixins.json",
-		{
-			"config": "legacy-end-rings.client.mixins.json",
-			"environment": "client"
-		}
+		"legacy-end-rings.mixins.json"
 	],
 	"depends": {
 		"fabricloader": "*",
-		"minecraft": ">=26.3-alpha.6",
+		"minecraft": ">=26.3-alpha.7",
 		"java": ">=25"
 	}
 }
