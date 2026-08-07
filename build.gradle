@@ -1,9 +1,19 @@
 plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
+	id 'org.glavo.gradle-wrapper-neo' version "${wrapper_neo_version}"
 }
 
-version = project.mod_version
+def getModVersion = { ->
+	version = project.mod_version
+	Provider<String> output = providers.exec {
+		commandLine('git', 'rev-list', '--count', 'HEAD')
+	}.standardOutput.asText
+
+	return version + "." + output.get().trim().toString()
+}
+
+version = getModVersion()
 group = project.maven_group
 
 repositories {
@@ -45,9 +55,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
 	sourceCompatibility = JavaVersion.VERSION_25
@@ -71,11 +78,7 @@ publishing {
 		}
 	}
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
+		mavenLocal()
 	}
 }
