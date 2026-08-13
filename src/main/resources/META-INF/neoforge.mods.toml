@@ -1,0 +1,11 @@
+modLoader="javafml"
+loaderVersion="[21,)"
+license="MIT"
+
+[[mods]]
+modId="legacy-end-rings"
+version="${file.jarVersion}"
+displayName="Legacy End Rings"
+
+[[mixins]]
+config="legacy-end-rings.mixins.json"
