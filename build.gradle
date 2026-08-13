@@ -1,3 +1,5 @@
+import net.fabricmc.loom.task.RemapJarTask
+
 plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
@@ -56,6 +58,15 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.release = 25
 }
 
+afterEvaluate {
+	jar {
+		archiveFileName = "${project.name}-${project.mod_version}-mc${project.minecraft_version}-fabric.jar"
+	}
+
+	sourcesJar {
+		archiveFileName = "${project.name}-${project.mod_version}-mc${project.minecraft_version}-sources-fabric.jar"
+	}
+}
 java {
 	withSourcesJar()
 
